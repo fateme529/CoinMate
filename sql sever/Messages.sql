@@ -1,9 +1,9 @@
 CREATE TABLE Messages (
-    id INT IDENTITY PRIMARY KEY, 
-    from_user_wallet NVARCHAR(100) NOT NULL, 
-    to_user_wallet NVARCHAR(100) NOT NULL, 
+    id INT IDENTITY PRIMARY KEY,  
+    from_user_id INT NOT NULL,  
+    to_user_id INT NOT NULL,  
     content NVARCHAR(MAX) NOT NULL,  
-    timestamp DATETIME DEFAULT GETDATE(),
-    FOREIGN KEY (from_user_wallet) REFERENCES users(walletaddress),  
-    FOREIGN KEY (to_user_wallet) REFERENCES users(walletaddress) 
+    timestamp DATETIME DEFAULT GETDATE(),  
+    FOREIGN KEY (from_user_id) REFERENCES users(id),  
+    FOREIGN KEY (to_user_id) REFERENCES users(id)  
 );
